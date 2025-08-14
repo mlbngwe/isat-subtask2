@@ -1,6 +1,7 @@
 #include <iostream>
 #include <bitset>
 #include <string>
+#include <sstream>
 using namespace std;
 
 string decimalToBinary(int n) {
@@ -9,6 +10,16 @@ string decimalToBinary(int n) {
 
 int binaryToDecimal(const string &b) {
     return stoi(b, nullptr, 2);
+}
+
+string decimalToHexadecimal(int n) {
+    stringstream ss;
+    ss << hex << uppercase << n;
+    return ss.str();
+}
+
+int hexadecimalToDecimal(const string &h) {
+    return stoi(h, nullptr, 16);
 }
 
 void menu() {
@@ -38,6 +49,22 @@ void menu() {
                 cout << "Decimal equivalent: " << binaryToDecimal(bin) << "\n";
             } catch (...) {
                 cout << "Invalid binary number.\n";
+            }
+        }
+        else if (choice == 3) {
+            int dec;
+            cout << "Enter a decimal number: ";
+            cin >> dec;
+            cout << "Hexadecimal equivalent: " << decimalToHexadecimal(dec) << "\n";
+        }
+        else if (choice == 4) {
+            string hexVal;
+            cout << "Enter a hexadecimal number: ";
+            cin >> hexVal;
+            try {
+                cout << "Decimal equivalent: " << hexadecimalToDecimal(hexVal) << "\n";
+            } catch (...) {
+                cout << "Invalid hexadecimal number.\n";
             }
         }
         else if (choice == 6) {

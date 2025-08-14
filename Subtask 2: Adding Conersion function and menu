@@ -2,6 +2,8 @@
 #include <bitset>
 #include <string>
 #include <sstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 string decimalToBinary(int n) {
@@ -23,6 +25,7 @@ int hexadecimalToDecimal(const string &h) {
 }
 
 void menu() {
+    srand(time(0));
     int choice;
     while (true) {
         cout << "\nConversion Menu:\n";
@@ -30,7 +33,7 @@ void menu() {
         cout << "2. Convert Binary to Decimal\n";
         cout << "3. Convert Decimal to Hexadecimal\n";
         cout << "4. Convert Hexadecimal to Decimal\n";
-        cout << "5. Demo\n";
+        cout << "5. Demo (Random Decimal to Binary)\n";
         cout << "6. Exit\n";
         cout << "Enter your choice (1-6): ";
         cin >> choice;
@@ -67,9 +70,17 @@ void menu() {
                 cout << "Invalid hexadecimal number.\n";
             }
         }
+        else if (choice == 5) {
+            int randomNum = rand() % 100;
+            cout << "Random Decimal: " << randomNum << "\n";
+            cout << "Binary equivalent: " << decimalToBinary(randomNum) << "\n";
+        }
         else if (choice == 6) {
             cout << "Exiting program...\n";
             break;
+        }
+        else {
+            cout << "Invalid choice. Please select 1-6.\n";
         }
     }
 }

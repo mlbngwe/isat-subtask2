@@ -1,5 +1,11 @@
 #include <iostream>
+#include <bitset>
+#include <string>
 using namespace std;
+
+string decimalToBinary(int n) {
+    return bitset<32>(n).to_string().substr(bitset<32>(n).to_string().find('1'));
+}
 
 void menu() {
     int choice;
@@ -14,11 +20,15 @@ void menu() {
         cout << "Enter your choice (1-6): ";
         cin >> choice;
 
-        if (choice == 6) {
+        if (choice == 1) {
+            int dec;
+            cout << "Enter a decimal number: ";
+            cin >> dec;
+            cout << "Binary equivalent: " << decimalToBinary(dec) << "\n";
+        }
+        else if (choice == 6) {
             cout << "Exiting program...\n";
             break;
-        } else {
-            cout << "Option selected: " << choice << "\n";
         }
     }
 }
@@ -27,4 +37,3 @@ int main() {
     menu();
     return 0;
 }
-

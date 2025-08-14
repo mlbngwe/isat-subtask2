@@ -1,1 +1,30 @@
-.
+#include <iostream>
+using namespace std;
+
+void menu() {
+    int choice;
+    while (true) {
+        cout << "\nConversion Menu:\n";
+        cout << "1. Convert Decimal to Binary\n";
+        cout << "2. Convert Binary to Decimal\n";
+        cout << "3. Convert Decimal to Hexadecimal\n";
+        cout << "4. Convert Hexadecimal to Decimal\n";
+        cout << "5. Demo\n";
+        cout << "6. Exit\n";
+        cout << "Enter your choice (1-6): ";
+        cin >> choice;
+
+        if (choice == 6) {
+            cout << "Exiting program...\n";
+            break;
+        } else {
+            cout << "Option selected: " << choice << "\n";
+        }
+    }
+}
+
+int main() {
+    menu();
+    return 0;
+}
+

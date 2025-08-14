@@ -7,6 +7,10 @@ string decimalToBinary(int n) {
     return bitset<32>(n).to_string().substr(bitset<32>(n).to_string().find('1'));
 }
 
+int binaryToDecimal(const string &b) {
+    return stoi(b, nullptr, 2);
+}
+
 void menu() {
     int choice;
     while (true) {
@@ -25,6 +29,16 @@ void menu() {
             cout << "Enter a decimal number: ";
             cin >> dec;
             cout << "Binary equivalent: " << decimalToBinary(dec) << "\n";
+        }
+        else if (choice == 2) {
+            string bin;
+            cout << "Enter a binary number: ";
+            cin >> bin;
+            try {
+                cout << "Decimal equivalent: " << binaryToDecimal(bin) << "\n";
+            } catch (...) {
+                cout << "Invalid binary number.\n";
+            }
         }
         else if (choice == 6) {
             cout << "Exiting program...\n";
